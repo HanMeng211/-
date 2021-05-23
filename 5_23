@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+void get(char* str1,char*str2)
+{
+    if(str1 == NULL || str2 == NULL)
+    {
+        return;
+    }
+    char* p1 = str1;
+    char* p2 = str2;
+    int n1 = strlen(str1);
+    int n2 = strlen(str2);
+    //开辟一个和str1一样大的空间
+    char* new = (char*)malloc(sizeof(char)*n1);
+    char* newp = new;
+    //若p1指向的元素在p2中没有出现过就将p1指向的元素放入新开辟的空间
+    for(int i = 0;i < n1;++i)
+    {
+        int j;
+        for(j = 0;j < n2;++j)
+        {
+            if(p1[i] == p2[j])
+            {
+                break;
+            }
+        }
+        if(j == n2)
+        {
+            *newp = str1[i];
+            ++newp;
+        }
+    }
+    *newp = '\0';
+    printf("%s\n",new);
+}
+int main()
+{
+    char str1[100000];
+    char str2[100000];
+    gets(str1);
+    gets(str2);
+    get(str1,str2);
+    return 0;
+}
