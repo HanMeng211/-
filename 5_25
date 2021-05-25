@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void swap(char* a, char* b)
+{
+	char tem = *a;
+	*a = *b;
+	*b = tem;
+}
+//先整体逆置，再以空格分开部分逆置
+void reverse(char* str, int n)
+{
+	int left = 0;
+	int right = n - 1;
+	while (left < right)
+	{
+		swap(&str[left], &str[right]);
+		++left;
+		--right;
+	}
+  
+  //部分逆置
+	int begin = 0;
+	int end = 0;
+	int newend;
+	while (end < n)
+	{
+		while (str[end + 1] != ' ' && str[end + 1] != '\0')
+		{
+			++end;
+		}
+		if (str[end + 1] != '\0')
+		{
+			newend = end + 2;
+			while (begin < end)
+			{
+				swap(&str[begin], &str[end]);
+				++begin;
+				--end;
+			}
+			begin = end = newend;
+		}
+		else
+		{
+			while (begin < end)
+			{
+				swap(&str[begin], &str[end]);
+				++begin;
+				--end;
+			}
+			end = n;
+		}
+
+	}
+	printf("%s\n", str);
+}
+
+int main()
+{
+	char str[100];
+	gets(str);
+	int n = strlen(str);
+	reverse(str, n);
+	return 0;
+}
