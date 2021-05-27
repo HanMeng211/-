@@ -1,0 +1,56 @@
+//给定一个十进制数M，以及需要转换的进制数N。将十进制数M转化为N进制数
+//输入描述:
+//输入为一行，M(32位整数)、N(2 ≤ N ≤ 16)，以空格隔开。
+//输出描述:
+//为每个测试实例输出转换后的数，每个输出占一行。如果N大于9，则对应的数字规则参考16进制（比如，10用A表示，等等）
+
+
+
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+void fun(int& M,int& N,vector<char> &arr)
+{
+    int ret = 0;
+    while(M != 0)
+    {
+        //%出来的刚好是N进制由低位到高位的值，但后面我们进行尾插
+        //所以低位的值就放到了高位，最后需要逆置
+        ret = M % N;
+        char c = 0;
+        //大于9需要写成16进制数字10='A'
+        if(ret > 9)
+        {
+            c = ret - 10 + 'A';
+        }
+        else
+        {
+            c = ret + '0';
+        }
+        arr.push_back(c);
+        M /= N;
+    }
+}
+int main()
+{
+    int M,N;
+    cin>>M>>N;
+    //保证负数的N进制
+    if(M < 0)
+    {
+        M = -M;
+        cout<<"-";
+    }
+    vector<char> arr;
+    fun(M,N,arr);
+    //因为我们是尾插，所以需要逆置，此处从后往前打印
+    for(int i = arr.size() - 1;i >= 0;--i)
+    {
+        cout<<arr[i];
+    }
+    return 0;
+}
