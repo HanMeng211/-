@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int StrToInt(string str) {
+        //如果是空字符串直接返回
+        if(str.size() == 0)
+        {
+            return 0;
+        }
+        int flag = 1,i = 0;
+        long ret = 0;
+        //当以空格开始，继续往后走，直到走到不是空格的位置
+        while(str[i] == ' ')
+        {
+            ++i;
+        }
+        //非空格第一位为符号让flag=-1，然后向后走
+        if(str[i] == '-')
+        {
+            flag = -1;
+            ++i;
+        }
+        //非空格第一位为正号让flag=1，然后向后走
+        else if(str[i] == '+')
+        {
+            ++i;
+        }
+        //当i小于字符串的长度，当为数字时继续向后判断
+        //若不为数字，直接返回0
+        while(i < str.size())
+        {
+            if(str[i] >= '0' && str[i] <= '9')
+            {
+                ret = ret * 10 + (str[i] - '0');
+                ++i;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return ret * flag;
+    }
+};
