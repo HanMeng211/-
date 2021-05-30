@@ -1,0 +1,24 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+//分整除4，整除2，奇数等几种情况讨论即可。蛋糕位置就是间隔每个2*2的正方形的区域
+int main()
+{
+    int W,H,count;
+    cin>>W>>H;
+    if(W % 4 == 0 || H % 4 == 0)
+    {
+        count = W * H / 2;
+    }
+    else if(W % 2 == 0 && H % 2 == 0)
+    {
+        count = (W * H / 4 + 1) * 2;
+    }
+    else
+    {
+        count = W * H / 2 + 1;
+    }
+    cout<<count<<endl;
+    return 0;
+}
