@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main()
+{
+    int N,num1,num2;
+    scanf("%d",&N);
+    int a = 0,b = 1,c;
+    while(b < N)
+    {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    if(b == N)
+    {
+        printf("0\n");
+        return 0;
+    }
+    num1 = N - a;
+    num2 = c - N;
+    printf("%d\n",num1 < num2?num1:num2);
+    return 0;
+}
