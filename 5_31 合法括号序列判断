@@ -1,0 +1,32 @@
+class Parenthesis {
+public:
+    bool chkParenthesis(string A, int n) {
+        // write code here
+        stack<char> st;
+        for(auto &ch:A)
+        {
+            //当遇到'('入栈
+            if(ch == '(')
+            {
+                st.push(ch);
+            }
+            //遇到')'判断栈是否为空，栈为空返回false
+            //栈不为空'('出栈
+            else if(ch == ')')
+            {
+                if(st.empty() == 1)
+                {
+                    return false;
+                }
+                st.pop();
+            }
+            //当不为'('和')'则返回false
+            else
+            {
+                return false;
+            }
+        }
+        //当循环结束则返回true
+        return true;
+    }
+};
