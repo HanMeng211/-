@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+//求出最大公约数
+//两个数的乘积=最大公约数*最小公倍数
+int greatest(int max,int min)
+{
+    int ret = max % min;
+    while(ret)
+    {
+        int ret1 = ret;
+        ret = min % ret; 
+        min = ret1;
+    }
+    return min;
+}
+
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    int min = a < b?a:b;
+    int max = a > b?a:b;
+    //最大公约数
+    int ret = greatest(max,min);
+    //最小公倍数
+    int x = a * b / ret;
+    printf("%d\n",x);
+    return 0;
+}
