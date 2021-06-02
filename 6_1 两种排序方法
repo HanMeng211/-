@@ -1,0 +1,51 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<vector>
+using namespace std;
+//按ascii比较字符串
+bool Strcmp(vector<string> v)
+{
+    for(int i = 0;i < v.size() - 1;i++)
+    {
+        if(v[i] > v[i + 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+//利用string的size来比较字符串的长度
+bool length(vector<string> v)
+{
+    for(int i = 0;i < v.size() - 1;i++)
+    {
+        if(v[i].size() > v[i + 1].size())
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    //将接受的字符串都放到vector容器中
+    vector<string> v;
+    int n;
+    string str;
+    cin>>n;
+    for(int i = 0;i < n;++i)
+    {
+        cin>>str;
+        v.push_back(str);
+    }
+    if(Strcmp(v) == true && length(v) == true)
+        cout<<"both\n"<<endl;
+    else if(Strcmp(v) == true && length(v) != true)
+        cout<<"lexicographically"<<endl;
+    else if(Strcmp(v) != true && length(v) == true)
+        cout<<"lengths"<<endl;
+    else
+        cout<<"none\n"<<endl;
+    return 0;
+}
