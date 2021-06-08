@@ -28,6 +28,7 @@ int GetCount(int year,int month,int day)
 int main()
 {
     int year,month,day;
+    //多组输入
     while(cin>>year>>month>>day)
     {
         cout<<GetCount(year,month,day)<<endl;
