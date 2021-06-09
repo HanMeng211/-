@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int findNumberOfl(int num)
+{
+    int a,b;
+    int count = 0;
+    while(a)
+    {
+        a = num / 2;
+        b = num % 2;
+        num = a;
+        if(b == 1)
+        {
+            ++count;
+        }
+    }
+    return count;
+}
+int main()
+{
+    int num;
+    while(cin>>num)
+    {
+        int ret = findNumberOfl(num);
+        cout<<ret<<endl;
+    }
+    return 0;
+}
