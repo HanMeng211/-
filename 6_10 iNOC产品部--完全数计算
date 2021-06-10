@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+//判断是不是完全数
+//是返回0,不是返回-1
+int fun(int n)
+{
+    int sum = 0;
+    for(int i = 1;i < n;++i)
+    {
+        if(n % i == 0)
+        {
+            sum += i;
+        }
+    }
+    if(sum == n)
+    {
+        return 0;
+    }
+    else
+    {
+        return -1;
+    }
+}
+int main()
+{
+    int n;
+    while(cin>>n)
+    {
+        int count = 0;
+        //判断n以内返回0的次数
+        //即为n以内完全数的个数
+        for(int i = 1;i <= n;++i)
+        {
+            int ret = fun(i);
+            if(ret == 0)
+            {
+                ++count;
+            }
+        }
+        cout<<count<<endl;
+    }
+    return 0;
+}
