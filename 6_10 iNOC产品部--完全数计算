@@ -29,7 +29,7 @@ int main()
     {
         int count = 0;
         //判断n以内返回0的次数
-        //即为n以内完全数的个数
+        //即count为n以内完全数的个数
         for(int i = 1;i <= n;++i)
         {
             int ret = fun(i);
