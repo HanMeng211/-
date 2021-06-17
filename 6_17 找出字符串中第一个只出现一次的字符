@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+    string st;
+    while(cin>>st)
+    {
+        int i,j;
+        for(i = 0;i < st.size();++i)
+        {
+            for(j = 0;j < st.size();++j)
+            {
+                //如果i和j相等继续
+                if(i == j)
+                {
+                    continue;
+                }
+                //如果st[i]和st[j]相等
+                //则是重复的++i
+                if(st[i] == st[j])
+                {
+                    break;
+                }
+            }
+            //当遍历一遍j走到st.size()位置
+            //则证明没有重复的，打印st[i]
+            if(j == st.size())
+            {
+                cout<<st[i]<<endl;
+                break;
+            }
+        }
+        //当遍历一遍i=st.size()
+        //则全是重复的返回-1
+        if(i == st.size())
+        {
+            cout<<"-1"<<endl;
+        }
+    }
+    return 0;
+}
