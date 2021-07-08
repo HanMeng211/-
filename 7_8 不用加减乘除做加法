@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int Add(int num1, int num2) {
+        int tem1,tem2;
+        //直到进位为0，tem1为最终结果
+        while(tem2 != 0)
+        {
+            //不进位相加
+            tem1 = num1 ^ num2;
+            //计算进位
+            tem2 = (num1 & num2)<<1;
+            num1 = tem1;
+            num2 = tem2;
+        }
+        return tem1;
+    }
+};
