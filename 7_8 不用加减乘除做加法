@@ -5,7 +5,7 @@ public:
         //直到进位为0，tem1为最终结果
         while(tem2 != 0)
         {
-            //不进位相加
+            //不进位相加 
             tem1 = num1 ^ num2;
             //计算进位
             tem2 = (num1 & num2)<<1;
