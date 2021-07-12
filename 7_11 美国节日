@@ -90,7 +90,7 @@ void christmas(int year)
 {
     printf("%d-12-25\n", year);
 }
-// 美国节日
+// 输入年份调用此接口，即可打印美国节日日期
 void festival(int year) 
 {
     new_year_day(year);
